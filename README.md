@@ -1,60 +1,43 @@
 # Airline Reservation System
 
-This repository contains a simple Java-based Airline Reservation System implemented in `src/Main.java`.
+## Business Context
 
-## Features
+Airlines require a system to manage flight schedules, seat booking, cancellations, and pricing.
 
-- Register passengers with name and email
-- Add new flights with route, departure time, price, and seat layout
-- View available flights and flight details
-- Book tickets with seat selection and payment simulation
-- Cancel tickets (with a 2-hour cancellation restriction)
-- Display seat availability as a matrix
-- Generate summary reports for flights, passengers, bookings, and revenue
-- Run basic SQL-style query outputs for profitable flights and most booked routes
+## Design Objective
 
-## Files
+Create a system to:
+-	Register passengers 
+-	Manage flights and seat inventory 
+-	Book/cancel tickets 
+-	Handle dynamic pricing 
+-	Generate booking reports 
 
-- `src/Main.java` - Main application containing passenger, flight, and booking logic plus console menu
+## Main Flows
+-	Flight management 
+-	Seat availability tracking 
+-	Ticket booking and cancellation 
+-	Payment simulation 
+-	Reporting 
+## Business Rules
+-	Each seat can be booked only once per flight 
+-	Overbooking is not allowed 
+-	Cancellation rules depend on time before flight 
+## Constraints
+-	Seat locking during booking 
+-	Date/time validation required 
+-	Price varies based on demand 
+## Storage
+-	In-memory seat matrix per flight 
+## SQL Use Case
+Find most profitable flights and highest booking routes.
 
-## Prerequisites
+## SQL Query
 
-- Java JDK 8 or later
+<img width="1080" height="577" alt="Screenshot 2026-05-19 161032" src="https://github.com/user-attachments/assets/a627ea93-14d4-4a6f-b40b-6381e76a9b71" />
 
-## Compile and Run
+## SQL Query Output
 
-Open a terminal in the project root and run:
+<img width="517" height="197" alt="Screenshot 2026-05-19 152201" src="https://github.com/user-attachments/assets/d413e23a-97fa-47f2-89c6-9333c58b2320" />
 
-```bash
-javac src/Main.java -d out
-java -cp out Main
-```
 
-If you prefer to run directly from the source directory:
-
-```bash
-cd src
-javac Main.java
-java Main
-```
-
-## Usage
-
-Upon running, the application presents a console menu:
-
-1. Register Passenger
-2. Add Flight
-3. View Flights
-4. Book Ticket
-5. Cancel Ticket
-6. Generate Reports
-7. SQL Query Output
-8. Exit
-
-The program includes two preloaded flights (`AI101` and `AI202`) for immediate testing.
-
-## Notes
-
-- Seat prices increase automatically based on occupancy
-- Cancellation is blocked when a flight departure is less than 2 hours away
-- Payment processing is simulated with a short delay
