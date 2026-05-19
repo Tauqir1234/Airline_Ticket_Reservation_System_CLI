@@ -1,37 +1,60 @@
-```7. Airline Ticket Reservation System```
+# Airline Reservation System
 
-```Business Context```
-Airlines require a system to manage flight schedules, seat booking, cancellations, and pricing.
+This repository contains a simple Java-based Airline Reservation System implemented in `src/Main.java`.
 
-```Design Objective```
+## Features
 
-Create a system to:
-•	Register passengers 
-•	Manage flights and seat inventory 
-•	Book/cancel tickets 
-•	Handle dynamic pricing 
-•	Generate booking reports 
+- Register passengers with name and email
+- Add new flights with route, departure time, price, and seat layout
+- View available flights and flight details
+- Book tickets with seat selection and payment simulation
+- Cancel tickets (with a 2-hour cancellation restriction)
+- Display seat availability as a matrix
+- Generate summary reports for flights, passengers, bookings, and revenue
+- Run basic SQL-style query outputs for profitable flights and most booked routes
 
-```Main Flows```
-•	Flight management 
-•	Seat availability tracking 
-•	Ticket booking and cancellation 
-•	Payment simulation 
-•	Reporting 
+## Files
 
-```Business Rules```
-•	Each seat can be booked only once per flight 
-•	Overbooking is not allowed 
-•	Cancellation rules depend on time before flight 
+- `src/Main.java` - Main application containing passenger, flight, and booking logic plus console menu
 
-```Constraints```
-•	Seat locking during booking 
-•	Date/time validation required 
-•	Price varies based on demand 
+## Prerequisites
 
-```Storage```
-•	In-memory seat matrix per flight 
+- Java JDK 8 or later
 
-```SQL Use Case```
+## Compile and Run
 
-Find most profitable flights and highest booking routes.
+Open a terminal in the project root and run:
+
+```bash
+javac src/Main.java -d out
+java -cp out Main
+```
+
+If you prefer to run directly from the source directory:
+
+```bash
+cd src
+javac Main.java
+java Main
+```
+
+## Usage
+
+Upon running, the application presents a console menu:
+
+1. Register Passenger
+2. Add Flight
+3. View Flights
+4. Book Ticket
+5. Cancel Ticket
+6. Generate Reports
+7. SQL Query Output
+8. Exit
+
+The program includes two preloaded flights (`AI101` and `AI202`) for immediate testing.
+
+## Notes
+
+- Seat prices increase automatically based on occupancy
+- Cancellation is blocked when a flight departure is less than 2 hours away
+- Payment processing is simulated with a short delay
